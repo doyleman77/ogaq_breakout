@@ -16,6 +16,9 @@ public:
     bool collision_test();
     Ball(SDL_Texture* texture);
     ~Ball();
+
+    void reflect_x();
+    void reflect_y();
 private:
     void move(uint32_t delta, const SDL_Rect& screen, Paddle& paddle);
 };

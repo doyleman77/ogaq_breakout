@@ -66,7 +66,10 @@ void Game::run()
 {
     paddle = new Paddle(texture_library["paddle"]);
     ball = new Ball(texture_library["ball"]);
-
+    bricks.reserve(20);
+    for(int i = 0; i < 2; i++)
+        for(int j = 0; j < 8; j++)
+            bricks.push_back(new Brick(texture_library["brick"], 5+(j*72)+j*8, 32+(i*16)+i*8));
     tick_time = current_time = 0;
     while (running)
     {
@@ -84,6 +87,8 @@ void Game::run()
         SDL_RenderClear(renderer);
         paddle->draw(renderer);
         ball->draw(renderer);
+        for(int i = 0; i < bricks.size(); i++)
+            bricks.at(i)->draw(renderer);
         SDL_RenderPresent(renderer);
     }
 
@@ -99,7 +104,8 @@ void Game::update(uint32_t delta)
     int direction = right_pressed - left_pressed;
     paddle->update(delta, screen, direction);
     ball->update(delta, screen, *paddle);
-
+    for(int i = 0; i < bricks.size(); i++)
+        bricks.at(i)->update(delta, ball);
 }
 
 void Game::load_image(std::string name)

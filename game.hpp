@@ -4,6 +4,7 @@
 #include "SDL2/SDL.h"
 #include "paddle.hpp"
 #include "ball.hpp"
+#include "brick.hpp"
 
 class Game
 {
@@ -28,4 +29,5 @@ private:
     void handle_input();
 
     std::map<std::string, SDL_Texture*> texture_library;
+    std::vector<Brick*> bricks;
 };

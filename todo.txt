@@ -1,15 +1,20 @@
-todo:
-----------
-paddle and ball likewise acceleration bug (positive + positive = more positive)
-bricks! with collisions! and disappearing!
-
-teehee: suprise addition (swing paddle)
-
 REFACTOR EPISODE:
 ====================
+Make sure resources are freed and released appropriately!
+Separate collisions with a collision manager
 handle delta and pixels per second!
+decay ball acceleration in proportion
 frames per second semi fixed
 correct const usage WRT getters and setters
 go through and fix commented suggestions
 make entity class worth it! aka: store all as entities
 error handling!
+
+
+
+todo:
+----------
+teehee: suprise addition (swing paddle)
+
+
+

@@ -49,19 +49,14 @@ void Ball::move(uint32_t delta, const SDL_Rect& screen, Paddle& paddle)
        collision_box.y > paddle.get_collision_box().y &&
        collision_box.y < paddle.get_collision_box().y + paddle.get_collision_box().h)
     {
-        std::cout << "Hurray!" << std::endl;
-        /// we need to use velocity, not acceleration! nathan, you walnut!
-
-        //if(paddle.get_velocity_x() != 0) acceleration_x *= -1;
-
         acceleration_y *= -1;
 
 
-        acceleration_x += paddle.get_velocity_x();
-        acceleration_y += paddle.get_velocity_y();
+        acceleration_x += paddle.get_velocity_x()/16; /// this will be changed by pixels/second
+        acceleration_y += paddle.get_velocity_y()/16;
+        std::cout << "Hurray!" << " " << acceleration_x << std::endl;
 
     }
-    acceleration_x *= .999; /// decay (variable?)
 }
 
 void Ball::draw(SDL_Renderer* renderer)
@@ -79,4 +74,14 @@ bool Ball::collision_test()
 {
 
 
+}
+
+void Ball::reflect_x()
+{
+    acceleration_x *= -1;
+}
+
+void Ball::reflect_y()
+{
+    acceleration_y *= -1;
 }

@@ -7,6 +7,7 @@ int main(int argc, char** argv)
     Game game;
     game.load_image("ball");
     game.load_image("paddle");
+    game.load_image("brick");
     game.run();
     return 0;
 }
