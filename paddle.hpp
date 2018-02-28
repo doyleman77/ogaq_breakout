@@ -8,10 +8,6 @@ public:
     void update(uint32_t delta, const SDL_Rect& screen, int direction);
     void draw(SDL_Renderer* renderer);
 
-    ///movement handlers
-    void move_left();
-    void move_right();
-
     Paddle(SDL_Texture* texture);
     ~Paddle();
 private:

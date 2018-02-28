@@ -10,7 +10,7 @@ public:
     ~Brick();
     void update(uint32_t delta, Ball* ball);
     void draw(SDL_Renderer* renderer);
-    bool collision_test(Ball* ball); /// non-virtual?
+    bool collision_test(Ball* ball);
 private:
 
 };

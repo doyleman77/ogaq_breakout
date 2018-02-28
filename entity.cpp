@@ -2,6 +2,8 @@
 
 Entity::Entity(SDL_Texture* texture)
 {
+    velocity_x = velocity_y = x = y = acceleration_x = acceleration_y = 0.0f;
+
     this->texture = texture;
     SDL_QueryTexture(texture, nullptr, nullptr, &collision_box.w, &collision_box.h);
 }

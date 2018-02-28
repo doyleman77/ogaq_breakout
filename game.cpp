@@ -20,6 +20,11 @@ Game::~Game()
 {
     delete paddle;
     delete ball;
+    for(auto& brick : bricks)
+        delete brick;
+    for(auto& tex : texture_library)
+        SDL_DestroyTexture(tex.second);
+
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 
@@ -27,11 +32,10 @@ Game::~Game()
 
 void Game::handle_input()
 {
-    /// right_pressed = left_pressed = false;
     while (SDL_PollEvent(&event))
     {
-        if((event.type == SDL_QUIT) ||
-            (event.key.keysym.sym == SDLK_ESCAPE)) running = false;
+        if(event.type == SDL_QUIT)
+            running = false;
 
         if(event.type == SDL_KEYDOWN)
         {
@@ -43,6 +47,9 @@ void Game::handle_input()
             case SDLK_LEFT:
                 left_pressed = true;
                 break;
+            case SDLK_ESCAPE:
+                 running = false;
+                 break;
             default:
                 break;
             }
@@ -83,7 +90,6 @@ void Game::run()
             update(16);
         }
         /// draw
-        //clear!
         SDL_RenderClear(renderer);
         paddle->draw(renderer);
         ball->draw(renderer);

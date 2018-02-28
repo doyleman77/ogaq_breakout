@@ -9,12 +9,13 @@ public:
 
     virtual void update(uint32_t delta, const SDL_Rect& screen);
     virtual void draw(SDL_Renderer* renderer);
-    virtual bool collision_test(); /// non-virtual?
+    virtual bool collision_test();
 
 
     SDL_Rect get_collision_box();
     float get_velocity_x();
     float get_velocity_y();
+
 protected:
     virtual void move(uint32_t delta, const SDL_Rect& screen);
 

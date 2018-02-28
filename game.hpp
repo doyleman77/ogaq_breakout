@@ -19,12 +19,12 @@ private:
     SDL_Renderer* renderer;
     SDL_Event event;
     SDL_Rect screen;
-
     Paddle* paddle;
     Ball* ball;
     bool running;
     long tick_time, current_time;
     bool left_pressed, right_pressed;
+
     void update(uint32_t delta);
     void handle_input();
 
