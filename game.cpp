@@ -87,7 +87,7 @@ void Game::run()
         while(tick_time < current_time)
         {
             tick_time += 16;
-            update(16);
+            update(1000/16);
         }
         /// draw
         SDL_RenderClear(renderer);
